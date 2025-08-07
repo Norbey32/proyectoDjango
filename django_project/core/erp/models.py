@@ -1,7 +1,37 @@
 from django.db import models
 from datetime import datetime
 
+
+class Type(models.Model):
+        name = models.CharField(max_length=150, verbose_name="Nombre")
+
+        def __str__(self):
+            return self.name
+        
+        class Meta:
+            verbose_name = "tipo"
+            verbose_name_plural = "tipos"
+            db_table = "Tipo"
+            ordering = ['id']
+
+
+class Category(models.Model):
+        name = models.CharField(max_length=150, verbose_name="Nombre")
+
+        def __str__(self):
+            return self.name
+
+        class Meta:
+            verbose_name = "categoría"
+            verbose_name_plural = "categorías"
+            db_table = "Categoria"
+            ordering = ['id']
+
+
+
 class Employee(models.Model):
+    category = models.ManyToManyField(Category)
+    type = models.ForeignKey(Type, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, verbose_name="Nombres")
     dni = models.CharField(max_length=10, unique=True, verbose_name="DNI")
     date_joined = models.DateField(default=datetime.now, verbose_name="Fecha de registro")
@@ -19,4 +49,5 @@ class Employee(models.Model):
     class Meta:
         verbose_name = "empleado"
         verbose_name_plural = "empleados"
+        db_table = "Empleado"
         ordering = ['id']
