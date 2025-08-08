@@ -48,7 +48,6 @@ class Category(models.Model):
         db_table = "Categoria"
         ordering = ['id']
 
-
 class Sale(models.Model):
     id = models.AutoField(primary_key=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
