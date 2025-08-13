@@ -19,7 +19,7 @@ class Cliente(models.Model):
        db_table = "Cliente"
        ordering = ['id']
 
-class Producto(models.Model):
+class Product(models.Model):
     id = models.AutoField(primary_key=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
@@ -68,7 +68,7 @@ class Sale(models.Model):
 class SaleDetail(models.Model):
     id = models.AutoField(primary_key=True)
     venta = models.ForeignKey(Sale, related_name='details', on_delete=models.CASCADE)
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     subtotal = models.DecimalField(max_digits=10, decimal_places=2)

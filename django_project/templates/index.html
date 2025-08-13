@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Index</title>
 </head>
 <body>
+
+    <h1>
+        MI PRIMERA PAGINA WEB
+    </h1>
+
+    <h2>
+        {% block content %}
+            <ul>
+                {% for category in categories %}
+                    <li>{{ category.id }}/ {{ category.name }}</li>
+                {% endfor %}
+            </ul>
+
+        {% endblock %}
+    </h2>
+
     <h1>Hola {{ name }}</h1>
 </body>
 </html>
