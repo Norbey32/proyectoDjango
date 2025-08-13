@@ -1,27 +1,49 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'lib/bootstrap/bootstrap-5.3.7-dist/css/bootstrap.min.css' %}">
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/bootstrap-5.3.7-dist/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
 
-    <h1>
-        MI PRIMERA PAGINA WEB
-    </h1>
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>        
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-basic btn-sm">Basic</button>
+<button type="button" class="btn btn-default btn-sm">Default</button>
+<button type="button" class="btn btn-primary btn-sm">Primary</button>
+<button type="button" class="btn btn-success btn-sm">Success</button>
+<button type="button" class="btn btn-info btn-sm">Info</button>
+<button type="button" class="btn btn-warning btn-sm">Warning</button>
+<button type="button" class="btn btn-danger btn-sm">Danger</button>
+<button type="button" class="btn btn-link btn-sm">Link</button>
 
-    <h2>
-        {% block content %}
-            <ul>
-                {% for category in categories %}
-                    <li>{{ category.id }}/ {{ category.name }}</li>
-                {% endfor %}
-            </ul>
+<img src="{% static 'img/user.png' %}" class="img-fluid" img-thumbnail>
 
-        {% endblock %}
-    </h2>
-
-    <h1>Hola {{ name }}</h1>
 </body>
 </html>
