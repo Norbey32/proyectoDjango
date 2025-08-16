@@ -1,9 +1,8 @@
 from django.urls import path
-from core.erp.views import MyfirstView, MysecondView
+from core.erp.views.category.views import category_list
 
 app_name = 'erp'
 
 urlpatterns = [
-    path('uno/', MyfirstView, name='Vista1'),
-    path('dos/', MysecondView, name='Vista2')
+    path('category/list/', category_list, name='category_list')
 ]
