@@ -1,15 +1,25 @@
-{% extends 'base_content.html' %}
+{% extends 'list.html' %}
 
-{% block main_content %}
-  <div class="card-body">
-    <div class="card-header">
-      <h3 class="card-title">
-        <i class="fas fa-search"></i><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
-          {{ title }}
-            </font></font></h3>
-      </h3>
-    </div>  
-    <div class="card-body">
-    </div>         
-  </div>
+{% block columns %}
+    <tr>
+        <th scope="col" styles=width: 10%>Nro</th>
+        <th scope="col" styles=width: 70%>Name</th>
+        <th scope="col" styles=width: 20%>Options</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for c in object_list %} <tr>
+        <td> {{ c.id }} </td>
+        <td> {{ c.name }} </td>
+        <td>
+            <button type="button" class="btn btn-warning btn-xs btn-flat">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button type="button" class="btn btn-danger btn-xs btn-flat">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </td>
+    </tr>
+    {% endfor %}
 {% endblock %}
