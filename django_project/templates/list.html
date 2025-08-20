@@ -35,7 +35,7 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="{% static 'lib/datatables/datatables.min.js' %}"></script>
+    {{ block.super }}
     <script>
         $(function () {
             $('#data').DataTable({
@@ -44,18 +44,20 @@
             });
 
             $('.btnTest').on('click', function() {
-                $ajax({
-                    url: '{% url 'erp/category/list'%}',
+                $.ajax({
+                    url: '{% url 'erp:category_list'%}',
                     type: 'POST',
                     data: {id: 1},
                     dataType: 'json' 
-                }).done function(data) {
-                  
-                }).fail(function(data)) {
+
+                }).done(function(data) {
+                    console.log(data);
+                }).fail(function(data) {
                     alert('error');
-                }).always(function(dta)) {
-                    alert('complete')
+                }).always(function(data) {
+                
                 })
             });
+        })
     </script>
 {% endblock %}
